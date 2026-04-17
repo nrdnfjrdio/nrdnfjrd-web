@@ -11,25 +11,204 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-}
+* { box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
 
 body {
   background: #0D1117;
   color: #F0EDE6;
   font-family: var(--font-space-grotesk), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Pixel-art rendering for pixel art assets */
-.pixel-art {
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
+/* ─── Pixel grid background ─────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(245,166,35,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
 }
+
+/* ─── Pixel art rendering ────────────────────────────────────── */
+.pixel-art { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0D1117; }
+::-webkit-scrollbar-thumb { background: #F5A623; }
+
+/* ─── Robot mascot animations ────────────────────────────────── */
+@keyframes robot-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes robot-float-fast {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50%       { transform: translateY(-6px) rotate(2deg); }
+}
+@keyframes eye-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  96%           { transform: scaleY(0.08); }
+}
+@keyframes eye-glow {
+  0%, 100% { filter: drop-shadow(0 0 3px #F5A623); }
+  50%       { filter: drop-shadow(0 0 10px #F5A623) drop-shadow(0 0 20px #F5A623); }
+}
+@keyframes antenna-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+@keyframes panel-flicker {
+  0%, 89%, 100% { opacity: 1; }
+  90%            { opacity: 0.3; }
+}
+@keyframes think-spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.robot-idle     { animation: robot-float 3s ease-in-out infinite; }
+.robot-thinking { animation: robot-float-fast 1s ease-in-out infinite; }
+.robot-working  { animation: robot-float 2s ease-in-out infinite; }
+.robot-celebrating { animation: robot-float-fast 0.4s ease-in-out infinite; }
+
+.eye-idle     { animation: eye-blink 4s ease-in-out infinite; transform-origin: center; }
+.eye-thinking { animation: eye-blink 1.2s ease-in-out infinite; transform-origin: center; }
+.eye-working  { animation: eye-glow 1.5s ease-in-out infinite; fill: #F5A623; }
+.eye-celebrating { animation: eye-glow 0.6s ease-in-out infinite; fill: #F5A623; }
+
+.antenna-idle     { animation: antenna-pulse 3s ease-in-out infinite; }
+.antenna-thinking { animation: antenna-pulse 0.5s ease-in-out infinite; }
+.antenna-working  { animation: antenna-pulse 1s ease-in-out infinite; }
+
+.panel-light { animation: panel-flicker 5s ease-in-out infinite; }
+
+/* ─── Terminal window ────────────────────────────────────────── */
+.terminal-window {
+  border: 2px solid rgba(245,166,35,0.4);
+  box-shadow:
+    0 0 0 1px rgba(245,166,35,0.1),
+    0 0 40px rgba(245,166,35,0.08),
+    inset 0 0 40px rgba(0,0,0,0.4);
+}
+
+.terminal-titlebar {
+  background: rgba(245,166,35,0.06);
+  border-bottom: 1px solid rgba(245,166,35,0.2);
+}
+
+/* ─── Scanline overlay on terminal ──────────────────────────── */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.08) 2px,
+    rgba(0,0,0,0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ─── Chip / button pixel style ─────────────────────────────── */
+.pixel-chip {
+  border: 1px solid rgba(240,237,230,0.2);
+  font-family: var(--font-jetbrains-mono);
+  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  color: rgba(240,237,230,0.7);
+  background: rgba(240,237,230,0.03);
+  cursor: pointer;
+  transition: all 0.1s;
+  position: relative;
+}
+.pixel-chip:hover {
+  border-color: #F5A623;
+  color: #F5A623;
+  background: rgba(245,166,35,0.06);
+  box-shadow: 0 0 8px rgba(245,166,35,0.2);
+}
+.pixel-chip.active {
+  border-color: #F5A623;
+  color: #0D1117;
+  background: #F5A623;
+  box-shadow: 0 0 12px rgba(245,166,35,0.4);
+}
+
+/* ─── Message bubbles ────────────────────────────────────────── */
+.msg-bot {
+  border-left: 2px solid #F5A623;
+  padding-left: 0.75rem;
+  color: rgba(240,237,230,0.9);
+}
+.msg-user {
+  text-align: right;
+  color: #F5A623;
+  font-family: var(--font-jetbrains-mono);
+  font-size: 0.8rem;
+}
+
+/* ─── Thinking dots ──────────────────────────────────────────── */
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40%           { transform: translateY(-6px); opacity: 1; }
+}
+.dot-1 { animation: dot-bounce 1.2s ease-in-out infinite; }
+.dot-2 { animation: dot-bounce 1.2s ease-in-out 0.2s infinite; }
+.dot-3 { animation: dot-bounce 1.2s ease-in-out 0.4s infinite; }
+
+/* ─── Glow text ──────────────────────────────────────────────── */
+.glow-amber {
+  text-shadow: 0 0 20px rgba(245,166,35,0.5), 0 0 40px rgba(245,166,35,0.2);
+}
+
+/* ─── Pixel corner nav icons ─────────────────────────────────── */
+.nav-icon-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(240,237,230,0.15);
+  background: rgba(13,17,23,0.8);
+  cursor: pointer;
+  transition: all 0.15s;
+  backdrop-filter: blur(8px);
+}
+.nav-icon-btn:hover {
+  border-color: #F5A623;
+  box-shadow: 0 0 12px rgba(245,166,35,0.3);
+}
+.nav-icon-btn.active {
+  border-color: #F5A623;
+  background: rgba(245,166,35,0.1);
+  box-shadow: 0 0 16px rgba(245,166,35,0.4);
+}
+
+/* ─── Overlay panel ──────────────────────────────────────────── */
+@keyframes pixel-expand {
+  from { clip-path: inset(100% 0 0 0); opacity: 0; }
+  to   { clip-path: inset(0% 0 0 0);   opacity: 1; }
+}
+.pixel-expand { animation: pixel-expand 0.2s steps(6) forwards; }
+
+/* ─── Workflow visualizer ────────────────────────────────────── */
+@keyframes wire-in {
+  from { stroke-dashoffset: 100; }
+  to   { stroke-dashoffset: 0; }
+}
+.wire-animate { animation: wire-in 0.4s ease-out forwards; }
+
+/* ─── Input cursor blink ─────────────────────────────────────── */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink { animation: cursor-blink 1s step-end infinite; }
