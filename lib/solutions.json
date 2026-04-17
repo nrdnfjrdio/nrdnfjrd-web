@@ -1,0 +1,51 @@
+{
+  "ai_receptionist": {
+    "id": "ai_receptionist",
+    "title_da": "AI Receptionist",
+    "title_en": "AI Receptionist",
+    "description_da": "En AI-drevet receptionist der håndterer email, bookinger og kundehenvendelser automatisk — døgnet rundt.",
+    "description_en": "An AI-powered receptionist that handles email, bookings and customer inquiries automatically — around the clock.",
+    "price_dkk_month": 1495,
+    "track": "saas",
+    "nodes": ["intake", "email_parser", "booking_sync", "reply_gen", "crm_update"],
+    "node_colors": {
+      "intake": "#F5A623",
+      "email_parser": "#4A90D9",
+      "booking_sync": "#4A90D9",
+      "reply_gen": "#50C878",
+      "crm_update": "#9B59B6"
+    }
+  },
+  "document_processor": {
+    "id": "document_processor",
+    "title_da": "Dokument Processor",
+    "title_en": "Document Processor",
+    "description_da": "Automatisk udtræk og behandling af data fra fakturaer, kvitteringer og formularer direkte til dit regneark eller system.",
+    "description_en": "Automatic extraction and processing of data from invoices, receipts and forms directly into your spreadsheet or system.",
+    "price_dkk_month": 995,
+    "track": "saas",
+    "nodes": ["document_intake", "ocr_extract", "data_validate", "system_push"],
+    "node_colors": {
+      "document_intake": "#F5A623",
+      "ocr_extract": "#4A90D9",
+      "data_validate": "#50C878",
+      "system_push": "#9B59B6"
+    }
+  },
+  "report_automation": {
+    "id": "report_automation",
+    "title_da": "Rapport Automation",
+    "title_en": "Report Automation",
+    "description_da": "Automatisk indsamling og sammenstilling af data fra dine systemer til ugentlige eller månedlige rapporter.",
+    "description_en": "Automatic collection and compilation of data from your systems into weekly or monthly reports.",
+    "price_dkk_month": 795,
+    "track": "saas",
+    "nodes": ["data_collect", "transform", "report_gen", "email_delivery"],
+    "node_colors": {
+      "data_collect": "#F5A623",
+      "transform": "#4A90D9",
+      "report_gen": "#50C878",
+      "email_delivery": "#9B59B6"
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "nodes": {
+    "root": {
+      "id": "root",
+      "prompt_da": "Hvad bruger du for meget tid på?",
+      "prompt_en": "What do you spend too much time on?",
+      "chips": [
+        { "id": "paperwork", "label_da": "Papirarbejde og dokumenter", "label_en": "Paperwork and documents" },
+        { "id": "customers", "label_da": "Kundehenvendelser og opfølgning", "label_en": "Customer inquiries and follow-ups" },
+        { "id": "reports", "label_da": "Manuelle rapporter og dataudtræk", "label_en": "Manual reports and data extraction" },
+        { "id": "coordination", "label_da": "Intern koordinering og godkendelser", "label_en": "Internal coordination and approvals" }
+      ],
+      "next": {
+        "paperwork": "paperwork_modules",
+        "customers": "customer_modules",
+        "reports": "reports_modules",
+        "coordination": "coordination_modules",
+        "*": "consulting_track"
+      }
+    },
+    "paperwork_modules": {
+      "id": "paperwork_modules",
+      "prompt_da": "Hvilken type dokumenter handler det om?",
+      "prompt_en": "What type of documents are we talking about?",
+      "chips": [
+        { "id": "invoices", "label_da": "Fakturaer og kvitteringer", "label_en": "Invoices and receipts" },
+        { "id": "contracts", "label_da": "Kontrakter og aftaler", "label_en": "Contracts and agreements" },
+        { "id": "reports_doc", "label_da": "Rapporter og oversigter", "label_en": "Reports and summaries" },
+        { "id": "data_entry", "label_da": "Manuel dataindtastning", "label_en": "Manual data entry" }
+      ],
+      "next": {
+        "invoices": "roi_step",
+        "data_entry": "roi_step",
+        "*": "consulting_track"
+      },
+      "solution": "document_processor"
+    },
+    "customer_modules": {
+      "id": "customer_modules",
+      "prompt_da": "Hvad skal den håndtere?",
+      "prompt_en": "What should it handle?",
+      "chips": [
+        { "id": "email", "label_da": "Email", "label_en": "Email" },
+        { "id": "bookings", "label_da": "Bookinger", "label_en": "Bookings" },
+        { "id": "phone", "label_da": "Telefonopkald", "label_en": "Phone calls" },
+        { "id": "faq", "label_da": "FAQ og standardsvar", "label_en": "FAQ and standard replies" }
+      ],
+      "next": {
+        "*": "roi_step"
+      },
+      "solution": "ai_receptionist"
+    },
+    "reports_modules": {
+      "id": "reports_modules",
+      "prompt_da": "Hvor kommer dataene fra?",
+      "prompt_en": "Where does the data come from?",
+      "chips": [
+        { "id": "excel", "label_da": "Excel / regneark", "label_en": "Excel / spreadsheets" },
+        { "id": "erp", "label_da": "ERP eller CRM-system", "label_en": "ERP or CRM system" },
+        { "id": "email_data", "label_da": "Email og dokumenter", "label_en": "Email and documents" },
+        { "id": "multiple", "label_da": "Flere forskellige systemer", "label_en": "Multiple systems" }
+      ],
+      "next": {
+        "excel": "roi_step",
+        "email_data": "roi_step",
+        "*": "consulting_track"
+      },
+      "solution": "report_automation"
+    },
+    "coordination_modules": {
+      "id": "coordination_modules",
+      "prompt_da": "Hvad koordinerer du?",
+      "prompt_en": "What are you coordinating?",
+      "chips": [
+        { "id": "approvals", "label_da": "Godkendelser og sign-off", "label_en": "Approvals and sign-offs" },
+        { "id": "scheduling", "label_da": "Møder og planlægning", "label_en": "Meetings and scheduling" },
+        { "id": "tasks", "label_da": "Opgavefordeling", "label_en": "Task assignment" },
+        { "id": "hr", "label_da": "HR-processer", "label_en": "HR processes" }
+      ],
+      "next": {
+        "*": "consulting_track"
+      }
+    },
+    "roi_step": {
+      "id": "roi_step",
+      "type": "roi"
+    },
+    "consulting_track": {
+      "id": "consulting_track",
+      "type": "consulting"
+    }
+  }
+}
