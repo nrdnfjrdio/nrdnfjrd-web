@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "title": "nrdnfjrd.io — We automate what you don't want to do",
+    "description": "AI automation and workflows for businesses. Tell us what's taking up too much of your time – we'll find the solution."
+  },
+  "nav": {
+    "about": "About",
+    "contact": "Contact",
+    "blog": "Blog",
+    "langToggle": "DA"
+  },
+  "chat": {
+    "opening": "What do you spend too much time on?",
+    "placeholder": "Describe your challenge...",
+    "chips": {
+      "paperwork": "Paperwork and documents",
+      "customers": "Customer inquiries and follow-ups",
+      "reports": "Manual reports and data extraction",
+      "coordination": "Internal coordination and approvals"
+    },
+    "thinking": "Analysing your challenge...",
+    "followUp": "What should it handle?",
+    "modules": {
+      "email": "Email",
+      "bookings": "Bookings",
+      "phone": "Phone calls",
+      "faq": "FAQ"
+    },
+    "roiQuestion": "How many hours per week do you spend on this today?",
+    "roiUnit": "hrs/week",
+    "roiResult": "That's ~{amount} DKK/month",
+    "saasReveal": {
+      "badge": "Ready solution",
+      "ready": "Ready to use within 48 hours",
+      "cta": "Let's build it"
+    },
+    "consultingReveal": {
+      "badge": "Custom solution",
+      "message": "Your challenge requires a custom setup",
+      "saving": "You could save up to {amount} DKK/month",
+      "cta": "Book a free consultation"
+    }
+  },
+  "contact": {
+    "title": "Get started",
+    "name": "Name",
+    "company": "Company",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "submit": "Send",
+    "success": "Thanks! We'll get back to you within 24 hours.",
+    "error": "Something went wrong. Try again or contact us directly."
+  },
+  "about": {
+    "title": "About nrdnfjrd.io",
+    "body": "We're an AI automation agency from North Jutland, Denmark. We help businesses automate time-consuming processes with tried-and-tested AI solutions.",
+    "tagline": "We automate what you don't want to do."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Articles on AI automation, use cases, and what the technology can do for your business.",
+    "readMore": "Read more",
+    "backToBlog": "← Back to blog"
+  }
+}

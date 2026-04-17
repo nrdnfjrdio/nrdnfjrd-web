@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "title": "nrdnfjrd.io — Vi automatiserer det, du ikke gider",
+    "description": "AI-automatisering og workflows til danske virksomheder. Fortæl os hvad du bruger for meget tid på – vi finder løsningen."
+  },
+  "nav": {
+    "about": "Om os",
+    "contact": "Kontakt",
+    "blog": "Blog",
+    "langToggle": "EN"
+  },
+  "chat": {
+    "opening": "Hvad bruger du for meget tid på?",
+    "placeholder": "Beskriv din udfordring...",
+    "chips": {
+      "paperwork": "Papirarbejde og dokumenter",
+      "customers": "Kundehenvendelser og opfølgning",
+      "reports": "Manuelle rapporter og dataudtræk",
+      "coordination": "Intern koordinering og godkendelser"
+    },
+    "thinking": "Analyserer din udfordring...",
+    "followUp": "Hvad skal den håndtere?",
+    "modules": {
+      "email": "Email",
+      "bookings": "Bookinger",
+      "phone": "Telefonopkald",
+      "faq": "FAQ"
+    },
+    "roiQuestion": "Hvor mange timer om ugen bruger du på dette i dag?",
+    "roiUnit": "timer/uge",
+    "roiResult": "Det svarer til ~{amount} kr/måned",
+    "saasReveal": {
+      "badge": "Klar løsning",
+      "ready": "Klar til brug på 48 timer",
+      "cta": "Lad os bygge det"
+    },
+    "consultingReveal": {
+      "badge": "Skræddersyet løsning",
+      "message": "Din løsning kræver et skræddersyet setup",
+      "saving": "Du sparer op til {amount} kr/måned",
+      "cta": "Book en gratis gennemgang"
+    }
+  },
+  "contact": {
+    "title": "Kom i gang",
+    "name": "Navn",
+    "company": "Virksomhed",
+    "email": "Email",
+    "phone": "Telefon (valgfrit)",
+    "submit": "Send",
+    "success": "Tak! Vi vender tilbage inden for 24 timer.",
+    "error": "Noget gik galt. Prøv igen eller skriv direkte til os."
+  },
+  "about": {
+    "title": "Om nrdnfjrd.io",
+    "body": "Vi er et AI-automatiseringsbureau fra Nordjylland. Vi hjælper danske virksomheder med at automatisere tidskrævende processer med gennemprøvede AI-løsninger.",
+    "tagline": "Vi automatiserer det, du ikke gider."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Artikler om AI-automatisering, use cases og hvad teknologien kan gøre for din virksomhed.",
+    "readMore": "Læs mere",
+    "backToBlog": "← Tilbage til blog"
+  }
+}
